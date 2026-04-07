@@ -1,4 +1,4 @@
-import * as QRCode from "qrcode";
+import QRCode from "qrcode";
 import { Pass } from "../types/pass";
 
 let passes: Pass[] = [];

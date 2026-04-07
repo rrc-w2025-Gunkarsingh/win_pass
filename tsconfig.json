@@ -8,6 +8,7 @@
     "forceConsistentCasingInFileNames": true,
     "ignoreDeprecations": "6.0",
     "types": ["node", "jest"],
+    "allowSyntheticDefaultImports": true,
 
     "outDir": "./dist",
     "rootDir": "./",
