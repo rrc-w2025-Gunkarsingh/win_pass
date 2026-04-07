@@ -1,0 +1,79 @@
+openapi: 3.0.0
+info:
+  title: Senior Transit Pass API
+  version: 1.0.0
+  description: API for managing senior transit applications
+
+servers:
+  - url: http://localhost:3000/api/v1
+
+paths:
+  /applications:
+    get:
+      summary: Get all applications
+      responses:
+        '200':
+          description: List of applications
+
+    post:
+      summary: Create a new application
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Senior Pass Application
+      responses:
+        '201':
+          description: Application created
+
+  /applications/{id}:
+    get:
+      summary: Get application by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Application found
+
+    put:
+      summary: Update application
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Updated Application
+      responses:
+        '200':
+          description: Application updated
+
+    delete:
+      summary: Delete application
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Application deleted
