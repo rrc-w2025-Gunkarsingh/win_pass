@@ -2,7 +2,8 @@ import express from "express";
 import {
   createTicket,
   getTickets,
-  verifyTicket
+  verifyTicket,
+  useTicket
 } from "../controllers/passController";
 
 const router = express.Router();

@@ -56,3 +56,12 @@ export const useRide = (id: string) => {
 
   return pass;
 };
+
+export const topUpBalance = (id: string, amount: number) => {
+  const pass = passes.find(p => p.id === id);
+
+  if (!pass) return null;
+
+  pass.balance += amount;
+  return pass;
+};
