@@ -39,3 +39,16 @@ export const useTicket = (req: Request, res: Response) => {
 
   res.json(result);
 };
+import { topUpBalance } from "../services/passService";
+
+export const topUp = (req: Request, res: Response) => {
+  const { amount } = req.body;
+
+  const updated = topUpBalance(req.params.id as string, amount);
+
+  if (!updated) {
+    return res.status(404).json({ message: "Pass not found" });
+  }
+
+  res.json(updated);
+};
