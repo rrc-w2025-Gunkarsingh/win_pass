@@ -32,3 +32,27 @@ export const getAllPasses = (): Pass[] => passes;
 export const getPassById = (id: string): Pass | undefined => {
   return passes.find(p => p.id === id);
 };
+export const useRide = (id: string) => {
+  const pass = passes.find(p => p.id === id);
+
+  if (!pass) return { error: "Pass not found" };
+
+  // check expiry
+  if (new Date(pass.expiryDate) < new Date()) {
+    return { error: "Pass expired" };
+  }
+
+  // check rides
+  if (pass.ridesLeft <= 0 && pass.balance <= 0) {
+    return { error: "No rides or balance left" };
+  }
+
+  // deduct ride first
+  if (pass.ridesLeft > 0) {
+    pass.ridesLeft -= 1;
+  } else {
+    pass.balance -= 3; // fare example
+  }
+
+  return pass;
+};

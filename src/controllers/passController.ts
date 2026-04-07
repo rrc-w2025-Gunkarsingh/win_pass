@@ -27,3 +27,15 @@ export const verifyTicket = (req: Request, res: Response) => {
 
   res.json({ valid: true, pass });
 };
+
+import { useRide } from "../services/passService";
+
+export const useTicket = (req: Request, res: Response) => {
+  const result = useRide(req.params.id as string);
+
+  if ((result as any).error) {
+    return res.status(400).json(result);
+  }
+
+  res.json(result);
+};
