@@ -13,142 +13,36 @@ paths:
       summary: Get all applications
       responses:
         '200':
-          description: List of applications
+          description: OK
 
     post:
-      summary: Create a new application
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  example: Senior Pass Application
+      summary: Create application
       responses:
         '201':
-          description: Application created
+          description: Created
 
   /applications/{id}:
     get:
       summary: Get application by ID
       parameters:
-        - name: id
-          in: path
+        - in: path
+          name: id
           required: true
           schema:
             type: integer
       responses:
         '200':
-          description: Application found
+          description: OK
 
-    put:
-      summary: Update application
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  example: Updated Application
+  /passes:
+    get:
+      summary: Get all passes
       responses:
         '200':
-          description: Application updated
+          description: OK
 
-    delete:
-      summary: Delete application
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
+    post:
+      summary: Create pass
       responses:
-        '200':
-          description: Application deleted
-
-          /passes:
-  post:
-    summary: Create a transit pass
-    requestBody:
-      required: true
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              name:
-                type: string
-              age:
-                type: number
-              balance:
-                type: number
-              ridesLeft:
-                type: number
-    responses:
-      201:
-        description: Pass created
-
-  get:
-    summary: Get all passes
-    responses:
-      200:
-        description: List of passes
-
-/passes/verify/{id}:
-  get:
-    summary: Verify pass validity
-    parameters:
-      - in: path
-        name: id
-        required: true
-        schema:
-          type: string
-    responses:
-      200:
-        description: Pass validity result
-
-/passes/use/{id}:
-  post:
-    summary: Use a ride
-    parameters:
-      - in: path
-        name: id
-        required: true
-        schema:
-          type: string
-    responses:
-      200:
-        description: Ride used
-
-/passes/topup/{id}:
-  post:
-    summary: Top up balance
-    parameters:
-      - in: path
-        name: id
-        required: true
-        schema:
-          type: string
-    requestBody:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              amount:
-                type: number
-    responses:
-      200:
-        description: Balance updated
+        '201':
+          description: Created
