@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "compilerOptions": {
     "target": "ES6",
     "module": "commonjs",
@@ -22,3 +23,28 @@
   "include": ["src/**/*", "tests/**/*"],
   "exclude": ["node_modules", "dist"]
 }
+=======
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "outDir": "./dist",
+        "resolveJsonModule": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictPropertyInitialization": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "alwaysStrict": true,
+        "baseUrl": "./",
+        "paths": {
+            "*": ["*"]
+        }
+    },
+    "include": ["src/**/*", "test/**/*", "config/**/*"],
+    "exclude": ["node_modules", "dist"]
+}
+>>>>>>> 69a9ad02b99ab9e47e263359efbd4b92e5cf5ea1
