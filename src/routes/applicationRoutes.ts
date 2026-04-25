@@ -14,3 +14,4 @@ router.put("/applications/:id", updateApplication);
 router.delete("/applications/:id", deleteApplication);
 
 export default router;
+
