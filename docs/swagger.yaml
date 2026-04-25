@@ -13,36 +13,67 @@ paths:
       summary: Get all applications
       responses:
         '200':
-          description: OK
+          description: List of applications
 
     post:
-      summary: Create application
+      summary: Create a new application
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Senior Pass Application
       responses:
         '201':
-          description: Created
+          description: Application created
 
   /applications/{id}:
     get:
       summary: Get application by ID
       parameters:
-        - in: path
-          name: id
+        - name: id
+          in: path
           required: true
           schema:
             type: integer
       responses:
         '200':
-          description: OK
+          description: Application found
 
-  /passes:
-    get:
-      summary: Get all passes
+    put:
+      summary: Update application
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Updated Application
       responses:
         '200':
-          description: OK
+          description: Application updated
 
-    post:
-      summary: Create pass
+    delete:
+      summary: Delete application
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
       responses:
-        '201':
-          description: Created
+        '200':
+          description: Application deleted

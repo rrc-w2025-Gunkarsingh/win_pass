@@ -1,13 +1,11 @@
 import express, { Application, Request, Response } from "express";
 import applicationRoutes from "./routes/applicationRoutes";
 import { swaggerDocs } from "./swagger";
-import passRoutes from "./routes/passRoutes";
 
 const app: Application = express();
 
 // middleware
 app.use(express.json());
-app.use("/api/v1/passes", passRoutes);
 app.use("/api/v1", applicationRoutes);
 swaggerDocs(app);
 
